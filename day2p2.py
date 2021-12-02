@@ -1,8 +1,8 @@
 """Submarine movement"""
 def main():
-    """Calculating submarines' depth and horizontal position of submarine"""
+    """Calculating submarines' depth and horizontal position - which now depends on aim"""
     with open("2021/day2.txt", 'r', encoding='utf-8') as file:
-        depth, length = 0, 0
+        depth, length, aim = 0, 0, 0
         while True:
             cmd = str.split(file.readline())
             if not cmd:
@@ -10,10 +10,11 @@ def main():
 
             if cmd[0] == "forward":
                 length += int(cmd[1])
+                depth += aim * int(cmd[1])
             elif cmd[0] == "down":
-                depth += int(cmd[1])
+                aim += int(cmd[1])
             else:
-                depth -= int(cmd[1])
+                aim -= int(cmd[1])
             #print("we're flying") if depth < 0  else None
     print(depth, length, depth*length)
 
