@@ -18,8 +18,6 @@ def main():
             else:
                 gamma.append("1")
                 epsilon.append("0")
-        print(gamma, epsilon)
-
     print(int("".join(gamma), 2), int("".join(epsilon), 2), int("".join(gamma), 2) * int("".join(epsilon), 2))
 if __name__ == "__main__":
     main()
